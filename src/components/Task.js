@@ -1,7 +1,8 @@
 // import React from 'react'
 import { FaTimesCircle } from "react-icons/fa";
+import { AiFillEdit } from "react-icons/ai";
 
-const Task = ({ task, deleteTask, toggleDone }) => {
+const Task = ({ task, deleteTask, toggleDone, fetchTask }) => {
   return (
     <div
       className={`task ${task.isDone ? "done" : ""}`}
@@ -9,10 +10,22 @@ const Task = ({ task, deleteTask, toggleDone }) => {
     >
       <h3>
         {task.text}
-        <FaTimesCircle
-          style={{ color: "red" }}
-          onClick={() => deleteTask(task.id)}
-        />
+        <div
+          style={{
+            display: "flex",
+            width: "50px",
+            justifyContent: "space-between",
+          }}
+        >
+          <AiFillEdit
+            style={{ color: "green" }}
+            onClick={() => fetchTask(task.id)}
+          />
+          <FaTimesCircle
+            style={{ color: "red" }}
+            onClick={() => deleteTask(task.id)}
+          />
+        </div>
       </h3>
       <p>{task.day}</p>
     </div>
@@ -20,3 +33,4 @@ const Task = ({ task, deleteTask, toggleDone }) => {
 };
 
 export default Task;
+

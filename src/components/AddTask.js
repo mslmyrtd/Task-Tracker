@@ -1,12 +1,32 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-const AddTask = ({ addTask }) => {
+const AddTask = ({ addTask, editedTask, editable }) => {
   const [text, setText] = useState("");
   const [day, setDay] = useState("");
+  const [editText, setEditText] = useState(false);
+  const [editDay, setEditDay] = useState(false);
+
+  useEffect(() => {
+    if (editable) {
+      setEditText(true);
+      setEditDay(true);
+    }
+  }, [editable]);
 
   const onSubmit = (e) => {
+    console.log(editedTask);
     e.preventDefault();
-    addTask({ text, day, isDone: false });
+    if (editText && editDay) {
+      addTask({ text: editedTask.text, day: editedTask.day, isDone: false });
+    } else if (editText && !editDay) {
+      addTask({ text: editedTask.text, day, isDone: false });
+    } else if (!editText && editDay) {
+      addTask({ text, day: editedTask.day, isDone: false });
+    } else {
+      addTask({ text, day, isDone: false });
+    }
+    setEditDay(false);
+    setEditText(false);
     setText("");
     setDay("");
     // console.log(text);
@@ -23,8 +43,11 @@ const AddTask = ({ addTask }) => {
           type="text"
           placeholder="AddTask"
           required
-          value={text}
-          onChange={(e) => setText(e.target.value)}
+          value={editText ? editedTask.text : text}
+          onChange={(e) => {
+            setEditText(false);
+            setText(e.target.value);
+          }}
           //   onChange={(e) => console.log(e.target.value)}
         />
       </div>
@@ -36,12 +59,19 @@ const AddTask = ({ addTask }) => {
           type="text"
           placeholder="Add Day & Time"
           required
-          value={day}
-          onChange={(e) => setDay(e.target.value)}
+          value={editDay ? editedTask.day : day}
+          onChange={(e) => {
+            setEditDay(false);
+            setDay(e.target.value);
+          }}
           //   onChange={(e) => console.log(e.target.value)}
         />
       </div>
-      <input type="submit" value="Add Task" className="btn btn-block" />
+      <input
+        type="submit"
+        value={editable ? "Edit Task" : "Add Task"}
+        className="btn btn-block"
+      />
     </form>
   );
 };

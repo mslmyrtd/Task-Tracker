@@ -2,7 +2,7 @@
 
 import Task from "./Task";
 
-const Tasks = ({ tasks, deleteTask, toggleDone }) => {
+const Tasks = ({ tasks, deleteTask, toggleDone, fetchTask }) => {
   // console.log("tasks", tasks);
   return (
     <div>
@@ -12,6 +12,7 @@ const Tasks = ({ tasks, deleteTask, toggleDone }) => {
           task={task}
           deleteTask={deleteTask}
           toggleDone={toggleDone}
+          fetchTask={fetchTask}
         />
       ))}
     </div>
