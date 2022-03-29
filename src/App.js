@@ -4,6 +4,8 @@ import Header from "./components/Header";
 import Tasks from "./components/Tasks";
 import AddTask from "./components/AddTask";
 import axios from "axios";
+import { ToastContainer } from "react-toastify";
+import { successNote } from "./utils/customTostify";
 
 function App() {
   const [tasks, setTasks] = useState([]);
@@ -65,6 +67,7 @@ function App() {
     setEditedTask({});
     setEditable(false);
     fetchTasks();
+    successNote("Wow So Easy! Added")
   };
 
   // const addTask = (newTask) => {
@@ -85,6 +88,7 @@ function App() {
   const deleteTask = async (deletedTaskId) => {
     await axios.delete(`${baseUrl}/${deletedTaskId}`);
     fetchTasks();
+    successNote("Deleted!");
   };
 
   // const deleteTask = (deletedTaskId) => {
@@ -114,6 +118,7 @@ function App() {
 
     await axios.put(`${baseUrl}/${toggleDoneId}`, updatedTask);
     fetchTasks();
+
   };
 
   // const toggleDone = (toggleDoneId) => {
@@ -154,8 +159,12 @@ function App() {
           fetchTask={fetchTask}
         />
       ) : (
-        <p style={{ textAlign: "center" }}>NO TASK TO SHOW</p>
+        <p style={{ textAlign: "center" }}>
+          NO TASK TO SHOW
+          
+        </p>
       )}
+      <ToastContainer />
     </div>
   );
 }
