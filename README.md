@@ -26,9 +26,9 @@
 
 ```
 
-$ git clone https://github.com/mslmyrtd/Task-Tracker-Rc-.git
+$ git clone https://github.com/mslmyrtd/Task-Tracker-json-.git
 
-$ cd Task-Tracker-Rc
+$ cd Task-Tracker-json
 
 ```
 
