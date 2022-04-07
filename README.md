@@ -1,6 +1,6 @@
 
 
-<h2  align="center">Task Tracker with React</h2>
+<h2  align="center">Task Tracker Json with React</h2>
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
  <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
@@ -15,7 +15,7 @@
 - #### React.js
 - #### React Toastify
 - #### React Icon
-- #### Bootsrap
+- #### Bootstrap
 
 
 <details><summary><b>Installation Instructions</b></summary><br>
