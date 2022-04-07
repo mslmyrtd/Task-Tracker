@@ -65,7 +65,7 @@ Graphql routes starts with /graphql
 
 <details><summary><b>Deployment </b></summary><br>
 
-Deployed at Netlify @ https://mslmtasktracker2.netlify.app/  <br>
+Deployed at Netlify @ https://mslmtasktrackerjson.netlify.app/  <br>
 Graphql queries can be done at @
 
 Check collection with Postman : <br>
