@@ -16,6 +16,7 @@
 - #### React Toastify
 - #### React Icon
 - #### Bootstrap
+- #### Json Data
 
 
 <details><summary><b>Installation Instructions</b></summary><br>
